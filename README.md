@@ -52,24 +52,26 @@ GDP values are in thousands of chained 2017 dollars. Wage data covers private es
 
 ## Gallery
 
-**Data flow**
+_Diagrams are editable in draw.io: [`docs/diagrams/`](docs/diagrams)._
 
-![Data flow](assets/dataflow.png)
+**Data flow: federal sources to the Power BI report**
 
-**Data model**
+![Data flow: federal sources to the Power BI report](assets/dataflow.png)
 
-![Data model](assets/data-model.png)
+**Multi-fact star schema**
 
-**Insight: employment by sector**
+![Multi-fact star schema](assets/data-model.png)
 
-![Insight: employment by sector](assets/insight-employment-by-sector.png)
+**Employment by sector**
 
-**Insight: unemployment**
+![Employment by sector](assets/insight-employment-by-sector.png)
 
-![Insight: unemployment](assets/insight-unemployment.png)
+**Unemployment rate: Lancaster vs. Pennsylvania**
 
-**Insight: wages**
+![Unemployment rate: Lancaster vs. Pennsylvania](assets/insight-unemployment.png)
 
-![Insight: wages](assets/insight-wages.png)
+**Average annual wages**
+
+![Average annual wages](assets/insight-wages.png)
 
 <!-- Power BI page screenshots: add as assets/powerbi-page-1-<name>.png, etc. -->
