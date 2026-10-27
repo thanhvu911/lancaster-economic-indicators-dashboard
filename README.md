@@ -1,80 +1,75 @@
-# edc_interview
-# Lancaster County Economic Dashboard (EDC Presentation)
+# Lancaster County Economic Indicators Dashboard
 
-**A data-driven Power BI dashboard and analysis of key economic indicators for Lancaster County, Pennsylvania.**
+An interactive Power BI report that benchmarks Lancaster County, PA against Pennsylvania and the United States on the labor market, real GDP by industry, and wages, using public data from the U.S. Bureau of Labor Statistics (BLS) and the Bureau of Economic Analysis (BEA).
 
-This repository powers the **EDC Presentation** for the Economic Development Corporation (or similar) of Lancaster County. It includes raw data from the U.S. Bureau of Labor Statistics (BLS) and Bureau of Economic Analysis (BEA), plus a fully built Power BI report that visualizes unemployment trends, real GDP by industry, wages, and comparisons to Pennsylvania and the United States.
+> **Context:** I built this as a technical interview case study for the Center for Regional Analysis at EDC Lancaster County, before joining the team as a Data Analyst Fellow.
 
----
+![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=flat&logo=powerbi&logoColor=black)
+![DAX](https://img.shields.io/badge/DAX-742774?style=flat)
+![Power Query](https://img.shields.io/badge/Power%20Query-217346?style=flat)
+![Excel](https://img.shields.io/badge/Excel-217346?style=flat&logo=microsoftexcel&logoColor=white)
 
-## 📊 Project Highlights
+## The question
+How is Lancaster County's economy performing relative to the state and the nation, and which industries drive its output and wages?
 
-- **Unemployment Analysis** (2015–2025)
-  - Monthly labor force, employment, unemployment, and unemployment rate for Lancaster MSA
-  - Direct comparison with Pennsylvania statewide and (where available) national trends
+## Data sources
+| Source | Dataset | Coverage |
+|---|---|---|
+| BLS | Local Area Unemployment Statistics (LAUS) | Labor force, employment, unemployment, unemployment rate (2015–2025, monthly) |
+| BEA | CAGDP9: Real GDP by county and industry (chained 2017 dollars) | Lancaster, Pennsylvania, U.S. (2001–2024) |
+| BLS | Quarterly Census of Employment and Wages (QCEW) | Lancaster average annual private-sector pay (2014–2024) and 2024 wages by NAICS sector |
 
-- **Real GDP by Industry** (2001–2024)
-  - Detailed breakdowns by NAICS sectors for Lancaster County, Pennsylvania, and the United States
-  - Chained 2017 dollars with private industries, goods-producing, services-providing, and addenda categories
+## Data model
+A star-schema variant with several fact tables that share dimensions, so labor, GDP, and wage data can be filtered together:
 
-- **Wage Data**
-  - Average annual pay in Lancaster County (2014–2024)
-  - 2024 wages and employment by NAICS sector (private industries only)
+- **Facts:** `fact_employment`, `fact_gdp`, `fact_lan_wages`, `lan_avg_annual`
+- **Dimensions:** `dim_geo` (Lancaster / PA / U.S.), `dim_industry` (NAICS), `dim_date`
+- **Measures table:** benchmarking measures such as industry share of total, Lancaster ÷ PA, and Lancaster ÷ U.S.
 
-- **Interactive Power BI Dashboard**
-  - Built with **Power KPI** custom visual for executive-level KPIs and trend analysis
-  - Professional “KPIM Business Light” theme
-  - Ready-to-present slides and visuals for stakeholders, investors, or economic briefings
+## Report pages
+1. **Labor market:** KPI cards plus annual and monthly labor force and unemployment, with Lancaster / PA / % rate toggles
+2. **Rate comparison:** labor-force growth and unemployment rate, Lancaster vs. Pennsylvania
+3. **Economic growth:** top and bottom 5 industries by GDP, and the GDP trend for Lancaster vs. PA vs. U.S.
+4. **Wages and employment:** average annual wage trend, wages and headcount by sector, and an industry benchmarking table
 
----
+## Key findings
+- Lancaster's unemployment rate ran consistently below Pennsylvania's over 2015–2025, including during the 2020 spike.
+- Average annual private-sector pay in Lancaster rose from about $41K (2014) to about $59.5K (2024).
+- The largest employers (health care, manufacturing, retail) pay below the county average, while the highest-paying sectors (management, utilities, finance) employ fewer people.
 
-## 📁 Repository Contents
+## Repository contents
+| File | Description |
+|---|---|
+| `EDC presentation.pbix` | Power BI Desktop report |
+| `Interview Data.xlsx` | Source workbook (7 sheets: Lancaster and PA employment; GDP for Lancaster, PA, and U.S.; Lancaster average annual wages; 2024 wages by NAICS) |
 
-| File                        | Description |
-|-----------------------------|-----------|
-| `Interview Data.xlsx`       | Complete source dataset (7 sheets): Lancaster Employment, PA Employment, GDP Lancaster, GDP PA, GDP USA, Lancaster Average Annual Wages, and Lancaster Wages by NAICS (2024). |
-| `EDC presentation.pbix`     | Power BI Desktop file containing the full interactive dashboard and presentation. Connects directly to the Excel file. |
+## How to open
+1. Install [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
+2. Open `EDC presentation.pbix`. If prompted, point the data source to your local copy of `Interview Data.xlsx`.
 
----
-🛠 Technologies Used
+## Data notes
+GDP values are in thousands of chained 2017 dollars. Wage data covers private establishments only. All data remains the property of BLS and BEA.
 
-Data Sources: BLS Local Area Unemployment Statistics, BEA CAGDP9 Real GDP by County
-Tools: Microsoft Excel, Power BI Desktop
-Custom Visual: Power KPI 3.0.4.0
-Theme: KPIM Business Light (navy/blue professional palette)
+## Gallery
 
+**Data flow**
 
-📈 Key Insights (Sample)
+![Data flow](assets/dataflow.png)
 
-Lancaster County consistently shows lower unemployment than Pennsylvania statewide.
-Strong growth in professional services, health care, and manufacturing.
-2024 average annual wages reached $59,515 (private sector).
-Real GDP rebounded strongly post-2020 and continued growing through 2024.
+**Data model**
 
-(Full analysis and charts are inside the .pbix file.)
+![Data model](assets/data-model.png)
 
-📝 Data Notes
+**Insight: employment by sector**
 
-Unemployment data runs through December 2025 (latest available at time of creation).
-GDP data is in thousands of chained 2017 dollars and was last updated by BEA on February 5, 2026.
-All wages are for private establishments only.
+![Insight: employment by sector](assets/insight-employment-by-sector.png)
 
+**Insight: unemployment**
 
-🎯 Use Cases
+![Insight: unemployment](assets/insight-unemployment.png)
 
-Economic development presentations
-Job interview / portfolio project
-Regional economic briefings
-Grant or investment proposals
-Academic or policy research
+**Insight: wages**
 
+![Insight: wages](assets/insight-wages.png)
 
-📄 License
-This project is open for educational and non-commercial use. Data remains property of the original federal sources (BLS / BEA). Feel free to fork and adapt—just please retain attribution.
-
-🤝 Contributing
-Pull requests welcome! Ideas for additional visuals, forecasting models, or new indicators (housing, population, etc.) are appreciated.
-
-📧 Contact
-Thanh
-Lancaster, Pennsylvania
+<!-- Power BI page screenshots: add as assets/powerbi-page-1-<name>.png, etc. -->
