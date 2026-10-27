@@ -62,6 +62,10 @@ _Diagrams are editable in draw.io: [`docs/diagrams/`](docs/diagrams)._
 
 ![Multi-fact star schema](assets/data-model.png)
 
+**Power BI Model view (from Power BI Desktop)**
+
+![Power BI Model view](assets/powerbi-data-model.png)
+
 **Employment by sector**
 
 ![Employment by sector](assets/insight-employment-by-sector.png)
