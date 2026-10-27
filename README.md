@@ -27,10 +27,12 @@ A star-schema variant with several fact tables that share dimensions, so labor, 
 - **Measures table:** benchmarking measures such as industry share of total, Lancaster ÷ PA, and Lancaster ÷ U.S.
 
 ## Report pages
-1. **Labor market:** KPI cards plus annual and monthly labor force and unemployment, with Lancaster / PA / % rate toggles
-2. **Rate comparison:** labor-force growth and unemployment rate, Lancaster vs. Pennsylvania
-3. **Economic growth:** top and bottom 5 industries by GDP, and the GDP trend for Lancaster vs. PA vs. U.S.
-4. **Wages and employment:** average annual wage trend, wages and headcount by sector, and an industry benchmarking table
+1. **Overview & labor market:** KPI cards (unemployment rate, unemployment, labor force); labor-force growth rate and unemployment rate for Lancaster vs. Pennsylvania, with Lancaster / PA / % rate toggles; monthly labor force and unemployment trends
+2. **Economic growth:** top and bottom 5 industries by GDP; GDP trend for Lancaster vs. PA vs. U.S.; Lancaster's average annual wage (annual / wages / employees toggle); 2024 wages by NAICS sector compared with the county average
+
+![Overview & labor market page](assets/powerbi-page-1-overview-labor-market.png)
+
+![Economic growth page](assets/powerbi-page-2-economic-growth.png)
 
 ## Key findings
 - Lancaster's unemployment rate ran consistently below Pennsylvania's over 2015–2025, including during the 2020 spike.
@@ -77,5 +79,3 @@ _Diagrams are editable in draw.io: [`docs/diagrams/`](docs/diagrams)._
 **Average annual wages**
 
 ![Average annual wages](assets/insight-wages.png)
-
-<!-- Power BI page screenshots: add as assets/powerbi-page-1-<name>.png, etc. -->
